@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <title>Youth Voices</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- Подключаем Font Awesome для иконок -->
+  <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
     body {
@@ -25,11 +25,33 @@
       margin: auto;
       padding: 2rem 0;
     }
-    .languages {
+    .lang-buttons {
+      text-align: center;
+      margin-bottom: 1.5rem;
+    }
+    .lang-buttons button {
+      margin: 0 5px;
+      padding: 0.5rem 1rem;
+      border: none;
+      border-radius: 5px;
+      background: #6ab04c;
+      color: white;
+      cursor: pointer;
+    }
+    .lang-buttons button:hover {
+      background: #4a8938;
+    }
+    .hidden {
+      display: none;
+    }
+    .image-block {
+      text-align: center;
       margin: 2rem 0;
     }
-    .languages h2 {
-      color: #333;
+    .image-block img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 10px;
     }
     footer {
       background: #333;
@@ -42,68 +64,86 @@
       margin: 0 10px;
       font-size: 1.5rem;
     }
-    .image-block {
-      text-align: center;
-      margin: 2rem 0;
-    }
-    .image-block img {
-      max-width: 100%;
-      height: auto;
-      border-radius: 10px;
-    }
   </style>
 </head>
 <body>
   <header>
     <h1>Youth Voices for Change</h1>
-    <p>ამინირებული სლოგანი / Animated Slogan</p>
+    <p>სამენოვანი ონლაინ პლატფორმა</p>
   </header>
 
   <div class="container">
-    <h2>Learn More</h2>
-    <h2>ქართული</h2>
-    <p>
-      მოგესალმებით ჩვენს ახალ სამენოვან ონლაინ პლატფორმაზე! <br>
-      ჩვენი მიზანია ახალგაზრდებისთვის საგანმანათლებლო შესაძლებლობებისა და პროექტების შესახებ ინფორმაციის გაზიარება.
-      პლატფორმა მოგაწვდით სანდო ინფორმაციას, რაც დაგეხმარებათ ინფორმირებული გადაწყვეტილებების მიღებაში.
-      აქ ნახავთ ტრენინგების, სემინარების, ბანაკებისა და სხვა ინიციატივების სიახლეებს.
-    </p>
-
-    <div class="languages">
-      <h2>հայ</h2>
-      <p>
-        Բարի գալուստ մեր եռալեզու առցանց հարթակ։ <br>
-        Մեր նպատակն է երիտասարդներին տրամադրել տեղեկատվություն կրթական հնարավորությունների և նախագծերի մասին։ 
-        Հարթակը տրամադրում է հուսալի տեղեկատվություն, որը կօգնի ձեզ կայացնել տեղեկացված որոշումներ։ 
-        Այստեղ դուք կգտնեք նորություններ դասընթացների, սեմինարների, ճամբարների և այլ նախաձեռնությունների մասին։
-      </p>
+    <!-- ენების გადამრთველი -->
+    <div class="lang-buttons">
+      <button onclick="setLanguage('ka')">ქართული</button>
+      <button onclick="setLanguage('hy')">Հայերեն</button>
+      <button onclick="setLanguage('az')">Azərbaycanca</button>
     </div>
 
-    <div class="languages">
-      <h2>Azərbaycan</h2>
-      <p>
-        Yeni üçdilli onlayn platformamıza xoş gəlmisiniz! <br>
-        Məqsədimiz gənclərə təhsil imkanları və layihələr haqqında məlumat verməkdir. 
-        Platforma sizə etibarlı məlumat təqdim edəcək, məlumatlı qərarlar qəbul etməyə kömək edəcək. 
-        Burada təlimlər, seminarlar, düşərgələr və digər təşəbbüslər haqqında yenilikləri tapa bilərsiniz.
-      </p>
+    <!-- ტექსტები -->
+    <div id="ka" class="lang-text">
+      <button onclick="toggleText('geo-text')">გაიგე მეტი</button>
+      <div id="geo-text" class="hidden">
+        <p>
+          მოგესალმებით ჩვენს ახალ სამენოვან ონლაინ პლატფორმაზე! <br>
+          ჩვენი მიზანია ახალგაზრდებისთვის საგანმანათლებლო შესაძლებლობებისა და პროექტების შესახებ ინფორმაციის გაზიარება.
+          პლატფორმა მოგაწვდით სანდო ინფორმაციას, რაც დაგეხმარებათ ინფორმირებული გადაწყვეტილებების მიღებაში.
+          აქ ნახავთ ტრენინგების, სემინარების, ბანაკებისა და სხვა ინიციატივების სიახლეებს.
+        </p>
+      </div>
     </div>
 
-    <!-- 🔹 Картинка -->
+    <div id="hy" class="lang-text hidden">
+      <button onclick="toggleText('arm-text')">Իմանալ ավելին</button>
+      <div id="arm-text" class="hidden">
+        <p>
+          Բարի գալուստ մեր եռալեզու առցանց հարթակ։ <br>
+          Մեր նպատակն է երիտասարդներին տրամադրել տեղեկատվություն կրթական հնարավորությունների և նախագծերի մասին։ 
+          Հարթակը տրամադրում է հուսալի տեղեկատվություն, որը կօգնի ձեզ կայացնել տեղեկացված որոշումներ։ 
+          Այստեղ դուք կգտնեք նորություններ դասընթացների, սեմինարների, ճամբարների և այլ նախաձեռնությունների մասին։
+        </p>
+      </div>
+    </div>
+
+    <div id="az" class="lang-text hidden">
+      <button onclick="toggleText('aze-text')">Daha çox öyrən</button>
+      <div id="aze-text" class="hidden">
+        <p>
+          Yeni üçdilli onlayn platformamıza xoş gəlmisiniz! <br>
+          Məqsədimiz gənclərə təhsil imkanları və layihələr haqqında məlumat verməkdir. 
+          Platforma sizə etibarlı məlumat təqdim edəcək, məlumatlı qərarlar qəbul etməyə kömək edəcək. 
+          Burada təlimlər, seminarlar, düşərgələr və digər təşəbbüslər haqqında yenilikləri tapa bilərsiniz.
+        </p>
+      </div>
+    </div>
+
+    <!-- ფოტო -->
     <div class="image-block">
       <img src="21d5855d-2de4-4699-bc4d-307c58045f0c.jpg" alt="Project photo">
     </div>
   </div>
 
- <footer>
-  <p>Get social</p>
-  <a href="https://www.facebook.com/profile.php?id=100067001153111" target="_blank"><i class="fab fa-facebook"></i></a>
-  <a href="https://www.instagram.com/vfc1.6/" target="_blank"><i class="fab fa-instagram"></i></a>
-  <a href="mailto:initiativecivilsociety@gmail.com" target="_blank"><i class="fas fa-envelope"></i></a>
-</footer>
+  <footer>
+    <p>Get social</p>
+    <a href="https://www.facebook.com/profile.php?id=100067001153111" target="_blank"><i class="fab fa-facebook"></i></a>
+    <a href="https://www.instagram.com/vfc1.6/" target="_blank"><i class="fab fa-instagram"></i></a>
+    <a href="mailto:initiativecivilsociety@gmail.com" target="_blank"><i class="fas fa-envelope"></i></a>
+  </footer>
+
+  <!-- Script -->
+  <script>
+    function setLanguage(lang) {
+      document.querySelectorAll('.lang-text').forEach(div => div.classList.add('hidden'));
+      document.getElementById(lang).classList.remove('hidden');
+    }
+
+    function toggleText(id) {
+      const text = document.getElementById(id);
+      text.classList.toggle('hidden');
+    }
+
+    // ნაგულისხმევად — ქართული
+    setLanguage('ka');
+  </script>
 </body>
 </html>
-
-
-
-
