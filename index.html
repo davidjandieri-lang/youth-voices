@@ -2,120 +2,89 @@
 <html lang="ka">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Youth Voices for Change</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Poppins', sans-serif;
-    }
     body {
+      margin: 0;
+      font-family: Arial, sans-serif;
       background: #f9f9f9;
       color: #333;
-      line-height: 1.6;
     }
     header {
-      position: relative;
-      background: url("21d5855d-2de4-4699-bc4d-307c58045f0c.jpg") no-repeat center/cover;
-      height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: white;
       text-align: center;
-    }
-    header::after {
-      content: "";
-      position: absolute;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      background: rgba(0,0,0,0.5);
-    }
-    header h1 {
-      position: relative;
-      font-size: 3em;
-      z-index: 1;
-    }
-    nav {
-      position: absolute;
-      top: 20px;
-      right: 20px;
-      z-index: 2;
-    }
-    nav button {
-      margin: 0 5px;
-      padding: 8px 15px;
-      border: none;
-      border-radius: 20px;
-      background: rgba(255,255,255,0.9);
-      cursor: pointer;
-      font-weight: 500;
-      transition: 0.3s;
-    }
-    nav button.active {
-      background: #0077cc;
+      background: #222;
       color: white;
+      padding: 1rem;
     }
-    .section {
-      max-width: 1000px;
-      margin: 50px auto;
-      padding: 20px;
+    .hero {
       text-align: center;
+      padding: 2rem;
     }
-    .btn-main {
-      padding: 12px 25px;
-      background: #0077cc;
-      color: white;
-      border: none;
-      border-radius: 30px;
-      font-size: 1em;
-      cursor: pointer;
-      transition: 0.3s;
-    }
-    .btn-main:hover {
-      background: #005fa3;
-    }
-    #learn-more {
-      margin-top: 20px;
-      text-align: justify;
-      background: white;
-      padding: 20px;
+    .hero img {
+      max-width: 100%;
       border-radius: 12px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-      display: none;
-      animation: fadeIn 0.6s ease;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
     }
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(-10px); }
-      to { opacity: 1; transform: translateY(0); }
+    .language-switcher {
+      margin: 1rem;
+      text-align: center;
+    }
+    .language-switcher button {
+      margin: 0 5px;
+      padding: 8px 16px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      background: #444;
+      color: white;
+      transition: background 0.3s;
+    }
+    .language-switcher button:hover {
+      background: #666;
     }
     .accordion {
-      margin-top: 40px;
-      text-align: left;
+      width: 90%;
+      max-width: 900px;
+      margin: 1rem auto;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      overflow: hidden;
+      background: white;
+    }
+    .accordion-header {
+      padding: 1rem;
+      cursor: pointer;
+      background: #eee;
+      font-weight: bold;
+    }
+    .accordion-content {
+      display: none;
+      padding: 1rem;
+      border-top: 1px solid #ccc;
+    }
+    .accordion.active .accordion-content {
+      display: block;
+    }
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1rem;
+      width: 90%;
+      max-width: 900px;
+      margin: 2rem auto;
     }
     .card {
+      border-radius: 10px;
       background: white;
-      margin-bottom: 15px;
-      border-radius: 12px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.08);
-      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      padding: 1rem;
     }
-    .card button {
-      width: 100%;
-      padding: 15px;
-      text-align: left;
-      border: none;
-      background: #0077cc;
+    footer {
+      text-align: center;
+      padding: 1rem;
+      background: #222;
       color: white;
-      font-size: 1.1em;
-      cursor: pointer;
-    }
-    .card-content {
-      display: none;
-      padding: 20px;
-      text-align: justify;
     }
   </style>
 </head>
@@ -123,107 +92,96 @@
 
   <header>
     <h1>Youth Voices for Change</h1>
-    <nav>
-      <button onclick="setLang('ka')" id="btn-ka" class="active">ქართული</button>
-      <button onclick="setLang('hy')" id="btn-hy">Հայերեն</button>
-      <button onclick="setLang('az')" id="btn-az">Azərbaycan</button>
-    </nav>
   </header>
 
-  <div class="section">
-    <button class="btn-main" onclick="toggleLearnMore()">გაიგე მეტი</button>
-    <div id="learn-more">
-      <!-- პირველი ტექსტი -->
-      <div data-lang="ka">
+  <div class="hero">
+    <img src="21d5855d-2de4-4699-bc4d-307c58045f0c.jpg" alt="Cover">
+  </div>
+
+  <!-- ენების გადამრთველი -->
+  <div class="language-switcher">
+    <button onclick="setLanguage('ka')">ქართული</button>
+    <button onclick="setLanguage('hy')">Հայերեն</button>
+    <button onclick="setLanguage('az')">Azərbaycanca</button>
+  </div>
+
+  <!-- გაიგე მეტი -->
+  <div class="accordion" id="learn-more">
+    <div class="accordion-header" onclick="toggleAccordion(this)">
+      გაიგე მეტი
+    </div>
+    <div class="accordion-content">
+      <div class="lang ka">
         მოგესალმებით ჩვენს ახალ სამენოვან ონლაინ პლატფორმაზე! 
         ჩვენი მიზანია ახალგაზრდებისთვის საგანმანათლებლო შესაძლებლობებისა და პროექტების შესახებ ინფორმაციის გაზიარება.
         პლატფორმა მოგაწვდით სანდო ინფორმაციას, რაც დაგეხმარებათ ინფორმირებული გადაწყვეტილებების მიღებაში.
         აქ ნახავთ ტრენინგების, სემინარების, ბანაკებისა და სხვა ინიციატივების სიახლეებს.
       </div>
-      <div data-lang="hy" class="hidden">
-        Բարի գալուստ մեր եռալեզու առցանց հարթակ։  
-        Մեր նպատակն է երիտասարդներին տրամադրել տեղեկատվություն կրթական հնարավորությունների և նախագծերի մասին։  
-        Հարթակը տրամադրում է հուսալի տեղեկատվություն, որը կօգնի ձեզ կայացնել տեղեկացված որոշումներ։  
-        Այստեղ դուք կգտնեք նորություններ դասընթացների, սեմինარների, ճամբարների և այլ նախաձեռնությունների մասին։
+      <div class="lang hy" style="display:none;">
+        Բարի գալուստ մեր եռալեզու առցանց հարթակ։
+        Մեր նպատակն է երիտասարդներին տրամադրել տեղեկատվություն կրթական հնարավորությունների և նախագծերի մասին։
+        Հարթակը տրամադրում է հուսալի տեղեկատվություն, որը կօգնի ձեզ կայացնել տեղեկացված որոշումներ։
+        Այստեղ դուք կգտնեք նորություններ դասընթացների, սեմինարների, ճամբարների և այլ նախաձեռնությունների մասին։
       </div>
-      <div data-lang="az" class="hidden">
-        Yeni üçdilli onlayn platformamıza xoş gəlmisiniz!  
-        Məqsədimiz gənclərə təhsil imkanları və layihələr haqqında məlumat verməkdir.  
-        Platforma sizə etibarlı məlumat təqdim edəcək, məlumatlı qərarlar qəbul etməyə kömək edəcək.  
+      <div class="lang az" style="display:none;">
+        Yeni üçdilli onlayn platformamıza xoş gəlmisiniz!
+        Məqsədimiz gənclərə təhsil imkanları və layihələr haqqında məlumat verməkdir.
+        Platforma sizə etibarlı məlumat təqdim edəcək, məlumatlı qərarlar qəbul etməyə kömək edəcək.
         Burada təlimlər, seminarlar, düşərgələr və digər təşəbbüslər haqqında yenilikləri tapa bilərsiniz.
-      </div>
-    </div>
-
-    <div class="accordion">
-      <!-- პირველი ფანჯარა -->
-      <div class="card">
-        <button onclick="toggleAccordion('acc1')">პირველი ფანჯარა</button>
-        <div id="acc1" class="card-content">
-          <div data-lang="ka">
-            ბოლნისი პატარა, მაგრამ მრავალფეროვნებით მდიდარი. თუმცა ახალგაზრდებისთვის ცხოვრება აქ მარტივი არ არის...
-            ჩვენი პროექტი ”Youth Voices for Change” სწორედ ამის შეცვლის სურვილით შეიქმნა. 
-            გვსურდა კიდევ უფრო მეტი გაეგოთ ახალგაზრდებს მათი უფლებებისა და ადგილობრივი თვითმმართველობის შესახებ,
-            ესწავლათ თუ როგორ მიიღონ მონაწილეობა გადაწყვეტილებების მიღების პროცესში და როგორ გამოიყენონ თავიანთი უფლებები...
-          </div>
-          <div data-lang="hy" class="hidden">
-            Բոլնիսը փոքր է, բայց հարուստ բազմազանությամբ։ Սակայն երիտասարդների համար այստեղ ապրելը հեշտ չէ...
-            Մեր «Youth Voices for Change» նախագիծը ստեղծվել է հենց սա փոխելու ցանկությամբ։
-            Մենք ցանկանում էինք, որ երիտասարդները ավելի շատ տեղեկություն ունենան իրենց իրավունքների և տեղական ինքնակառավարման մասին...
-          </div>
-          <div data-lang="az" class="hidden">
-            Bolnisi kiçik olsa da, çoxşaxəli və zəngindir. Lakin gənclər üçün burada həyat asan deyil...
-            Bizim layihəmiz “Youth Voices for Change” məhz bunu dəyişmək məqsədilə yaradılıb.
-            İstədik ki, gənclər öz hüquqları və yerli özünüidarəetmə haqqında daha çox bilsinlər...
-          </div>
-        </div>
-      </div>
-
-      <!-- მეორე ფანჯარა -->
-      <div class="card">
-        <button onclick="toggleAccordion('acc2')">მეორე ფანჯარა</button>
-        <div id="acc2" class="card-content">
-          <p>აქ შეგიძლია დაამატო სხვა ტექსტი სამ ენაზე.</p>
-        </div>
-      </div>
-
-      <!-- მესამე ფანჯარა -->
-      <div class="card">
-        <button onclick="toggleAccordion('acc3')">მესამე ფანჯარა</button>
-        <div id="acc3" class="card-content">
-          <p>ესეც ცარიელია, შეგიძლია მოგვიანებით შეავსო.</p>
-        </div>
       </div>
     </div>
   </div>
 
+  <!-- სამი ბლოკი -->
+  <div class="cards">
+    <div class="card">
+      <h3>Youth Voices for Change</h3>
+      <div class="lang ka">
+        ბოლნისი პატარა, მაგრამ მრავალფეროვნებით მდიდარი. თუმცა ახალგაზრდებისთვის ცხოვრება აქ მარტივი არ არის...
+        (სრული ტექსტი ქართულად)
+      </div>
+      <div class="lang hy" style="display:none;">
+        Բոլնիսը փոքր է, բայց հարուստ բազմազանությամբ։ Սակայն երիտասարդների համար այստեղ ապրելը հեշտ չէ...
+        (ամբողջական տեքსტը հայերեն)
+      </div>
+      <div class="lang az" style="display:none;">
+        Bolnisi kiçik olsa da, çoxşaxəli və zəngindir. Lakin gənclər üçün burada həyat asan deyil...
+        (tam mətn azərbaycanca)
+      </div>
+    </div>
+    <div class="card">
+      <h3>Block 2</h3>
+      <p>სხვა ინფორმაცია...</p>
+    </div>
+    <div class="card">
+      <h3>Block 3</h3>
+      <p>სხვა ინფორმაცია...</p>
+    </div>
+  </div>
+
+  <footer>
+    <p>კონტაქტი: initiativecivilsociety@gmail.com</p>
+    <p>
+      <a href="https://www.facebook.com/profile.php?id=100067001153111" style="color:white;">Facebook</a> |
+      <a href="https://www.instagram.com/vfc1.6/" style="color:white;">Instagram</a>
+    </p>
+  </footer>
+
   <script>
-    let currentLang = 'ka';
-
-    function setLang(lang) {
-      currentLang = lang;
-      document.querySelectorAll('nav button').forEach(btn => btn.classList.remove('active'));
-      document.getElementById('btn-' + lang).classList.add('active');
-
-      document.querySelectorAll('[data-lang]').forEach(el => {
-        if (el.getAttribute('data-lang') === lang) {
-          el.classList.remove('hidden');
-        } else {
-          el.classList.add('hidden');
-        }
-      });
+    function toggleAccordion(header) {
+      header.parentElement.classList.toggle("active");
     }
 
-    function toggleLearnMore() {
-      const section = document.getElementById('learn-more');
-      section.style.display = section.style.display === "block" ? "none" : "block";
+    function setLanguage(lang) {
+      // დამალე ყველა
+      document.querySelectorAll(".lang").forEach(el => el.style.display = "none");
+      // აჩვენე არჩეული
+      document.querySelectorAll(".lang." + lang).forEach(el => el.style.display = "block");
     }
 
-    function toggleAccordion(id) {
-      const content = document.getElementById(id);
-      content.style.display = content.style.display === "block" ? "none" : "block";
-    }
+    // ნაგულისხმევად ქართული
+    setLanguage('ka');
   </script>
 
 </body>
 </html>
-
