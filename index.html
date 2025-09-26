@@ -1,134 +1,107 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ka">
 <head>
   <meta charset="UTF-8">
-  <title>My Site</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-</head>
-<head>
-  <meta charset="UTF-8">
-  <title>Youth Voices for Change</title>
-  <!-- Font Awesome для иконок -->
+  <title>Youth Voices</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Подключаем Font Awesome для иконок -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
-    body { margin: 0; font-family: Arial, sans-serif; line-height: 1.5; }
-    header { background: #87ceeb; padding: 20px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; }
-    header h1 { margin: 0; font-size: 20px; }
-    .lang-switch button { margin-left: 5px; padding: 5px 10px; border: none; border-radius: 5px; cursor: pointer; }
-    .hero { background: #d3f3a3; padding: 40px; text-align: center; }
-    .hero img { max-width: 300px; width: 100%; height: auto; }
-    .content { padding: 40px; max-width: 1000px; margin: auto; }
-    .cards { display: flex; gap: 20px; justify-content: center; margin-top: 30px; flex-wrap: wrap; }
-    .card { flex: 1; min-width: 250px; background: #f08080; padding: 20px; border-radius: 10px; color: white; box-sizing: border-box; }
-    .footer { background: #333; color: #ccc; padding: 20px; text-align: center; font-size: 14px; }
-    .social-icons { margin-top: 10px; }
-    .social-icons a { color: #ccc; margin: 0 10px; font-size: 20px; transition: color 0.3s; }
-    .social-icons a:hover { color: #fff; }
-
-    /* 📱 Адаптивность */
-    @media (max-width: 768px) {
-      header { flex-direction: column; align-items: flex-start; }
-      .cards { flex-direction: column; align-items: stretch; }
-      .card { width: 100%; }
-      .hero { padding: 20px; }
-      .content { padding: 20px; }
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      line-height: 1.6;
+    }
+    header {
+      background: #6ab04c;
+      color: white;
+      text-align: center;
+      padding: 2rem;
+    }
+    .container {
+      width: 90%;
+      max-width: 1000px;
+      margin: auto;
+      padding: 2rem 0;
+    }
+    .languages {
+      margin: 2rem 0;
+    }
+    .languages h2 {
+      color: #333;
+    }
+    footer {
+      background: #333;
+      color: white;
+      text-align: center;
+      padding: 1rem;
+    }
+    footer a {
+      color: white;
+      margin: 0 10px;
+      font-size: 1.5rem;
+    }
+    .image-block {
+      text-align: center;
+      margin: 2rem 0;
+    }
+    .image-block img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 10px;
     }
   </style>
 </head>
 <body>
   <header>
-    <h1 id="title">Youth Voices for Change</h1>
-    <div class="lang-switch">
-      <button onclick="setLang('ka')">KA</button>
-      <button onclick="setLang('en')">EN</button>
-      <button onclick="setLang('ru')">RU</button>
-    </div>
+    <h1>Youth Voices for Change</h1>
+    <p>ამინირებული სლოგანი / Animated Slogan</p>
   </header>
 
-  <section class="hero">
-    <h2 id="subtitle">ახალგაზრდების ხმა ცვლილებებისთვის</h2>
-    <img src="https://via.placeholder.com/300x150.png?text=Youth+Voices" alt="Hero Image">
-    <p id="description">
-      What's special about your project. Highlight unique features and mission.
+  <div class="container">
+    <h2>Learn More</h2>
+    <p>
+      მოგესალმებით ჩვენს ახალ სამენოვან ონლაინ პლატფორმაზე! <br>
+      ჩვენი მიზანია ახალგაზრდებისთვის საგანმანათლებლო შესაძლებლობებისა და პროექტების შესახებ ინფორმაციის გაზიარება.
+      პლატფორმა მოგაწვდით სანდო ინფორმაციას, რაც დაგეხმარებათ ინფორმირებული გადაწყვეტილებების მიღებაში.
+      აქ ნახავთ ტრენინგების, სემინარების, ბანაკებისა და სხვა ინიციატივების სიახლეებს.
     </p>
-    <button id="learnMore">Learn more</button>
-  </section>
 
-  <section class="content">
-    <div class="cards">
-      <div class="card"><h3 id="card1-title">Locally made</h3><p id="card1-text">Highlight why this matters.</p></div>
-      <div class="card"><h3 id="card2-title">Ethically sourced</h3><p id="card2-text">Highlight why this matters.</p></div>
-      <div class="card"><h3 id="card3-title">Eco-friendly</h3><p id="card3-text">Highlight why this matters.</p></div>
+    <div class="languages">
+      <h2>Սომხური</h2>
+      <p>
+        Բարի գալուստ մեր եռալեզու առցանց հարթակ։ <br>
+        Մեր նպատակն է երիտասարդներին տրամադրել տեղեկատվություն կրթական հնարավորությունների և նախագծերի մասին։ 
+        Հարթակը տրամադրում է հուսալի տեղեկատվություն, որը կօգնի ձեզ կայացնել տեղեկացված որոշումներ։ 
+        Այստեղ դուք կգտնեք նորություններ դասընթացների, սեմինարների, ճամբարների և այլ նախաձեռնությունների մասին։
+      </p>
     </div>
-  </section>
 
-  <footer class="footer">
-    <div id="footer">The platform was created with the support of the European Youth Foundation.</div>
-    <div class="social-icons">
-<a href="https://www.facebook.com/profile.php?id=100067001153111" target="_blank">
-  <i class="fab fa-facebook"></i>
-</a>
-
-<a href="https://www.instagram.com/ifcs7/" target="_blank">
-  <i class="fab fa-instagram"></i>
-</a>
-
-<a href="mailto:example@mail.com" target="_blank">
-  <i class="fas fa-envelope"></i>
-</a>
-
+    <div class="languages">
+      <h2>Азერბайджанული</h2>
+      <p>
+        Yeni üçdilli onlayn platformamıza xoş gəlmisiniz! <br>
+        Məqsədimiz gənclərə təhsil imkanları və layihələr haqqında məlumat verməkdir. 
+        Platforma sizə etibarlı məlumat təqdim edəcək, məlumatlı qərarlar qəbul etməyə kömək edəcək. 
+        Burada təlimlər, seminarlar, düşərgələr və digər təşəbbüslər haqqında yenilikləri tapa bilərsiniz.
+      </p>
     </div>
-  </footer>
 
-  <script>
-    const translations = {
-      en: {
-        title: "Youth Voices for Change",
-        subtitle: "Youth voices for change",
-        description: "What's special about your project. Highlight unique features and mission.",
-        learnMore: "Learn more",
-        card1: { title: "Locally made", text: "Support local initiatives and communities." },
-        card2: { title: "Ethically sourced", text: "We use fair and transparent practices." },
-        card3: { title: "Eco-friendly", text: "Environmentally conscious and sustainable." },
-        footer: "The platform was created with the support of the European Youth Foundation."
-      },
-      ru: {
-        title: "Голоса молодежи за перемены",
-        subtitle: "Голоса молодежи за перемены",
-        description: "Особенности вашего проекта. Подчеркните уникальные черты и миссию.",
-        learnMore: "Узнать больше",
-        card1: { title: "Сделано локально", text: "Поддерживаем местные инициативы и сообщества." },
-        card2: { title: "Этичные материалы", text: "Мы используем честные и прозрачные практики." },
-        card3: { title: "Экологично", text: "Забота об окружающей среде и устойчивое развитие." },
-        footer: "Платформа создана при поддержке Европейского молодежного фонда."
-      },
-      ka: {
-        title: "ახალგაზრდების ხმა ცვლილებებისთვის",
-        subtitle: "ახალგაზრდების ხმა ცვლილებებისთვის",
-        description: "რა არის განსაკუთრებული თქვენს პროექტში. გაუსვით ხაზი მის უნიკალურობასა და მისიას.",
-        learnMore: "გაიგე მეტი",
-        card1: { title: "ლოკალურად შექმნილი", text: "ვუჭერთ მხარს ადგილობრივ ინიციატივებს და საზოგადოებებს." },
-        card2: { title: "ეთიკურად მიღებული", text: "ჩვენ ვიყენებთ სამართლიან და გამჭვირვალე პრაქტიკას." },
-        card3: { title: "ეკო-მეგობრული", text: "გარემოსდაცვითი პასუხისმგებლობა და მდგრადობა." },
-        footer: "პლატფორმა შექმნილია ევროპის ახალგაზრდული ფონდის მხარდაჭერით."
-      }
-    };
+    <!-- 🔹 Картинка -->
+    <div class="image-block">
+      <img src="img/example.jpg" alt="Project photo">
+    </div>
+  </div>
 
-    function setLang(lang) {
-      document.getElementById("title").innerText = translations[lang].title;
-      document.getElementById("subtitle").innerText = translations[lang].subtitle;
-      document.getElementById("description").innerText = translations[lang].description;
-      document.getElementById("learnMore").innerText = translations[lang].learnMore;
-      document.getElementById("card1-title").innerText = translations[lang].card1.title;
-      document.getElementById("card1-text").innerText = translations[lang].card1.text;
-      document.getElementById("card2-title").innerText = translations[lang].card2.title;
-      document.getElementById("card2-text").innerText = translations[lang].card2.text;
-      document.getElementById("card3-title").innerText = translations[lang].card3.title;
-      document.getElementById("card3-text").innerText = translations[lang].card3.text;
-      document.getElementById("footer").innerText = translations[lang].footer;
-    }
-  </script>
+ <footer>
+  <p>Get social</p>
+  <a href="https://www.facebook.com/profile.php?id=100067001153111" target="_blank"><i class="fab fa-facebook"></i></a>
+  <a href="https://www.instagram.com/vfc1.6/" target="_blank"><i class="fab fa-instagram"></i></a>
+  <a href="mailto:initiativecivilsociety@gmail.com" target="_blank"><i class="fas fa-envelope"></i></a>
+</footer>
 </body>
 </html>
+
 
 
