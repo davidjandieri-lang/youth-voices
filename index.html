@@ -2,186 +2,223 @@
 <html lang="ka">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Youth Voices for Change</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Font Awesome social icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
     body {
       margin: 0;
       font-family: Arial, sans-serif;
-      background: #f9f9f9;
+      background: #fff;
       color: #333;
     }
     header {
       text-align: center;
-      background: #222;
-      color: white;
-      padding: 1rem;
+      background: #fff;
     }
-    .hero {
-      text-align: center;
-      padding: 2rem;
+    header img {
+      width: 100%;
+      max-height: 450px;
+      object-fit: cover;
     }
-    .hero img {
-      max-width: 100%;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    .lang-switch {
+      position: absolute;
+      top: 20px;
+      right: 20px;
     }
-    .language-switcher {
-      margin: 1rem;
-      text-align: center;
-    }
-    .language-switcher button {
-      margin: 0 5px;
-      padding: 8px 16px;
+    .lang-switch button {
+      background: #ff6600;
       border: none;
+      padding: 8px 12px;
+      color: #fff;
+      margin: 0 3px;
       border-radius: 6px;
       cursor: pointer;
-      background: #444;
-      color: white;
-      transition: background 0.3s;
-    }
-    .language-switcher button:hover {
-      background: #666;
-    }
-    .accordion {
-      width: 90%;
-      max-width: 900px;
-      margin: 1rem auto;
-      border: 1px solid #ccc;
-      border-radius: 8px;
-      overflow: hidden;
-      background: white;
-    }
-    .accordion-header {
-      padding: 1rem;
-      cursor: pointer;
-      background: #eee;
       font-weight: bold;
     }
-    .accordion-content {
-      display: none;
-      padding: 1rem;
-      border-top: 1px solid #ccc;
+    .lang-switch button.active {
+      background: #333;
     }
-    .accordion.active .accordion-content {
-      display: block;
+    .intro {
+      text-align: center;
+      padding: 40px 20px;
+    }
+    .intro h2 {
+      font-size: 28px;
+      margin-bottom: 15px;
+    }
+    .intro p {
+      max-width: 800px;
+      margin: 0 auto 20px auto;
+      line-height: 1.6;
+    }
+    .intro button {
+      padding: 12px 25px;
+      border: 2px solid #333;
+      background: transparent;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    .intro button:hover {
+      background: #333;
+      color: #fff;
+    }
+    .hidden-text {
+      display: none;
+      max-width: 800px;
+      margin: 20px auto;
+      text-align: left;
+      line-height: 1.6;
     }
     .cards {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 1rem;
-      width: 90%;
-      max-width: 900px;
-      margin: 2rem auto;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      background: #f17856;
+      padding: 40px 20px;
+      gap: 20px;
     }
     .card {
+      background: #fff;
+      padding: 20px;
       border-radius: 10px;
-      background: white;
+      width: 280px;
       box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-      padding: 1rem;
+    }
+    .card h3 {
+      margin-top: 0;
+      margin-bottom: 10px;
     }
     footer {
+      background: #333;
+      color: #ccc;
+      padding: 30px 20px;
       text-align: center;
-      padding: 1rem;
-      background: #222;
-      color: white;
+    }
+    footer p {
+      max-width: 800px;
+      margin: 10px auto;
+      font-size: 14px;
+      line-height: 1.5;
+    }
+    .social {
+      margin-top: 15px;
+    }
+    .social a {
+      color: #fff;
+      margin: 0 10px;
+      font-size: 22px;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+    .social a:hover {
+      color: #f17856;
     }
   </style>
 </head>
 <body>
 
   <header>
-    <h1>Youth Voices for Change</h1>
+    <img src="21d5855d-2de4-4699-bc4d-307c58045f0c.jpg" alt="Youth Voices for Change">
+    <div class="lang-switch">
+      <button onclick="setLang('ka')" id="btn-ka" class="active">ქართული</button>
+      <button onclick="setLang('hy')" id="btn-hy">Սոմხური</button>
+      <button onclick="setLang('az')" id="btn-az">Azərbaycan</button>
+    </div>
   </header>
 
-  <div class="hero">
-    <img src="21d5855d-2de4-4699-bc4d-307c58045f0c.jpg" alt="Cover">
-  </div>
+  <section class="intro">
+    <h2 id="main-title">ახალგაზრდების ხმა ცვლილებებისათვის</h2>
+    <p id="main-text">
+      მოგესალმებით ჩვენს ახალ სამენოვან ონლაინ პლატფორმაზე! ჩვენი მიზანია ახალგაზრდებისთვის საგანმანათლებლო შესაძლებლობებისა და პროექტების შესახებ ინფორმაციის გაზიარება.
+    </p>
+    <button onclick="toggleMore()">გაიგე მეტი</button>
+    <div class="hidden-text" id="more-text"></div>
+  </section>
 
-  <!-- ენების გადამრთველი -->
-  <div class="language-switcher">
-    <button onclick="setLanguage('ka')">ქართული</button>
-    <button onclick="setLanguage('hy')">Հայերեն</button>
-    <button onclick="setLanguage('az')">Azərbaycanca</button>
-  </div>
-
-  <!-- გაიგე მეტი -->
-  <div class="accordion" id="learn-more">
-    <div class="accordion-header" onclick="toggleAccordion(this)">
-      გაიგე მეტი
-    </div>
-    <div class="accordion-content">
-      <div class="lang ka">
-        მოგესალმებით ჩვენს ახალ სამენოვან ონლაინ პლატფორმაზე! 
-        ჩვენი მიზანია ახალგაზრდებისთვის საგანმანათლებლო შესაძლებლობებისა და პროექტების შესახებ ინფორმაციის გაზიარება.
-        პლატფორმა მოგაწვდით სანდო ინფორმაციას, რაც დაგეხმარებათ ინფორმირებული გადაწყვეტილებების მიღებაში.
-        აქ ნახავთ ტრენინგების, სემინარების, ბანაკებისა და სხვა ინიციატივების სიახლეებს.
-      </div>
-      <div class="lang hy" style="display:none;">
-        Բարի գալուստ մեր եռալեզու առցանց հարթակ։
-        Մեր նպատակն է երիտասարդներին տրամադրել տեղեկատվություն կրթական հնարավորությունների և նախագծերի մասին։
-        Հարթակը տրամադրում է հուսալի տեղեկատվություն, որը կօգնի ձեզ կայացնել տեղեկացված որոշումներ։
-        Այստեղ դուք կգտնեք նորություններ դասընթացների, սեմինարների, ճամբարների և այլ նախաձեռնությունների մասին։
-      </div>
-      <div class="lang az" style="display:none;">
-        Yeni üçdilli onlayn platformamıza xoş gəlmisiniz!
-        Məqsədimiz gənclərə təhsil imkanları və layihələr haqqında məlumat verməkdir.
-        Platforma sizə etibarlı məlumat təqdim edəcək, məlumatlı qərarlar qəbul etməyə kömək edəcək.
-        Burada təlimlər, seminarlar, düşərgələr və digər təşəbbüslər haqqında yenilikləri tapa bilərsiniz.
-      </div>
-    </div>
-  </div>
-
-  <!-- სამი ბლოკი -->
-  <div class="cards">
+  <section class="cards">
     <div class="card">
-      <h3>Youth Voices for Change</h3>
-      <div class="lang ka">
-        ბოლნისი პატარა, მაგრამ მრავალფეროვნებით მდიდარი. თუმცა ახალგაზრდებისთვის ცხოვრება აქ მარტივი არ არის...
-        (სრული ტექსტი ქართულად)
-      </div>
-      <div class="lang hy" style="display:none;">
-        Բոլնիսը փոքր է, բայց հարուստ բազմազանությամբ։ Սակայն երիտասարդների համար այստեղ ապրելը հեշտ չէ...
-        (ամբողջական տեքსტը հայերեն)
-      </div>
-      <div class="lang az" style="display:none;">
-        Bolnisi kiçik olsa da, çoxşaxəli və zəngindir. Lakin gənclər üçün burada həyat asan deyil...
-        (tam mətn azərbaycanca)
-      </div>
+      <h3>ბლოკი 1</h3>
+      <p id="block1">ქართული ტექსტი ბლოკისთვის.</p>
     </div>
     <div class="card">
-      <h3>Block 2</h3>
-      <p>სხვა ინფორმაცია...</p>
+      <h3>ბლოკი 2</h3>
+      <p id="block2">ქართული ტექსტი ბლოკისთვის.</p>
     </div>
     <div class="card">
-      <h3>Block 3</h3>
-      <p>სხვა ინფორმაცია...</p>
+      <h3>ბლოკი 3</h3>
+      <p id="block3">ქართული ტექსტი ბლოკისთვის.</p>
     </div>
-  </div>
+  </section>
 
   <footer>
-    <p>კონტაქტი: initiativecivilsociety@gmail.com</p>
     <p>
-      <a href="https://www.facebook.com/profile.php?id=100067001153111" style="color:white;">Facebook</a> |
-      <a href="https://www.instagram.com/vfc1.6/" style="color:white;">Instagram</a>
+      The platform was created within a project implemented by "Initiative for Civil Society",
+      with the support of the European Youth Foundation of the Council of Europe. Any information published on the platform belongs to the authors and may not necessarily reflect the views of the Council of Europe or the European Youth Foundation.
     </p>
+    <p>Email: initiativecivilsociety@gmail.com</p>
+    <div class="social">
+      <a href="https://www.facebook.com/profile.php?id=100067001153111" target="_blank"><i class="fab fa-facebook"></i></a>
+      <a href="https://www.instagram.com/vfc1.6/" target="_blank"><i class="fab fa-instagram"></i></a>
+    </div>
   </footer>
 
   <script>
-    function toggleAccordion(header) {
-      header.parentElement.classList.toggle("active");
+    const texts = {
+      ka: {
+        title: "ახალგაზრდების ხმა ცვლილებებისათვის",
+        main: "მოგესალმებით ჩვენს ახალ სამენოვან ონლაინ პლატფორმაზე! ჩვენი მიზანია ახალგაზრდებისთვის საგანმანათლებლო შესაძლებლობებისა და პროექტების შესახებ ინფორმაციის გაზიარება.",
+        more: "პლატფორმა მოგაწვდით სანდო ინფორმაციას, რაც დაგეხმარებათ ინფორმირებული გადაწყვეტილებების მიღებაში. აქ ნახავთ ტრენინგების, სემინარების, ბანაკებისა და სხვა ინიციატივების სიახლეებს.",
+        block1: "ქართულად ბლოკი 1 ტექსტი.",
+        block2: "ქართულად ბლოკი 2 ტექსტი.",
+        block3: "ქართულად ბლოკი 3 ტექსტი."
+      },
+      hy: {
+        title: "Երիտասարդների ձայնը փոփոխությունների համար",
+        main: "Բարի գալուստ մեր եռալեզու առցանց հարթակ։ Մեր նպատակն է երիտասարդներին տրամադրել տեղեկատվություն կրթական հնարավորությունների և նախագծերի մասին։",
+        more: "Հարթակը տրամադրում է հուսալի տեղեկատվություն, որը կօգնի ձեզ կայացնել տեղեկացված որոշումներ։ Այստեղ դուք կգտնեք նորություններ դասընթացների, սեմինարների, ճամբարների և այլ նախաձեռնությունների մասին։",
+        block1: "Հայերեն բլոկ 1 տեքստ։",
+        block2: "Հայերեն բլոկ 2 տեքստ։",
+        block3: "Հայերեն բլոկ 3 տեքստ։"
+      },
+      az: {
+        title: "Dəyişiklik üçün gənclərin səsi",
+        main: "Yeni üçdilli onlayn platformamıza xoş gəlmisiniz! Məqsədimiz gənclərə təhsil imkanları və layihələr haqqında məlumat verməkdir.",
+        more: "Platforma sizə etibarlı məlumat təqdim edəcək, məlumatlı qərarlar qəbul etməyə kömək edəcək. Burada təlimlər, seminarlar, düşərgələr və digər təşəbbüslər haqqında yenilikləri tapa bilərsiniz.",
+        block1: "Azərbaycan dilində blok 1 mətn.",
+        block2: "Azərbaycan dilində blok 2 mətn.",
+        block3: "Azərbaycan dilində blok 3 mətn."
+      }
+    };
+
+    let currentLang = "ka";
+
+    function setLang(lang) {
+      currentLang = lang;
+      document.getElementById("main-title").innerText = texts[lang].title;
+      document.getElementById("main-text").innerText = texts[lang].main;
+      document.getElementById("more-text").innerText = texts[lang].more;
+      document.getElementById("block1").innerText = texts[lang].block1;
+      document.getElementById("block2").innerText = texts[lang].block2;
+      document.getElementById("block3").innerText = texts[lang].block3;
+
+      document.querySelectorAll(".lang-switch button").forEach(btn => btn.classList.remove("active"));
+      document.getElementById("btn-" + lang).classList.add("active");
     }
 
-    function setLanguage(lang) {
-      // დამალე ყველა
-      document.querySelectorAll(".lang").forEach(el => el.style.display = "none");
-      // აჩვენე არჩეული
-      document.querySelectorAll(".lang." + lang).forEach(el => el.style.display = "block");
+    function toggleMore() {
+      const moreText = document.getElementById("more-text");
+      if (moreText.style.display === "block") {
+        moreText.style.display = "none";
+      } else {
+        moreText.style.display = "block";
+      }
     }
 
-    // ნაგულისხმევად ქართული
-    setLanguage('ka');
+    // Init default
+    setLang("ka");
   </script>
-
 </body>
 </html>
