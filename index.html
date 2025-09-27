@@ -19,10 +19,10 @@
       position: relative;
     }
     header img {
-background: url("21d5855d-2de4-4699-bc4d-307c58045f0c.jpg") no-repeat center center;
-  background-size: cover;
-  height: 500px;
-  border-radius: 12px
+  width: 100%;       /* მთელ ეკრანზე */
+  max-height: 500px; /* სიმაღლის ლიმიტი */
+  object-fit: cover; /* სიმაღლის გაჭიმვის გარეშე */
+  border-radius: 12px;
     }
     .lang-switch {
       position: absolute;
@@ -233,4 +233,5 @@ background: url("21d5855d-2de4-4699-bc4d-307c58045f0c.jpg") no-repeat center cen
   </script>
 </body>
 </html>
+
 
