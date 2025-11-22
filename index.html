@@ -215,7 +215,8 @@ Avropa Şurası və digər beynəlxalq təşkilatlar gənclər üçün bilik, t�
       document.getElementById("accordion3-btn").innerText = texts[lang].accordionBtn;
       document.getElementById("accordion1").innerText = texts[lang].block1;
       document.getElementById("accordion2").innerText = texts[lang].block2;
-      document.getElementById("accordion3").innerHTML = texts[lang].block3 + `<br><a href="${texts[lang].block3Link}" target="_blank" class="link-btn">გადახედვა</a>`;
+      document.getElementById("accordion3").innerHTML = texts[lang].block3 + 
+  `<br><a href="${texts[lang].block3Link}" target="_blank" class="link-btn"><i class="fab fa-facebook fa-lg"></i></a>`;
       document.querySelectorAll(".lang-switch button").forEach(b => b.classList.remove("active"));
       document.getElementById("btn-"+lang).classList.add("active");
     }
@@ -236,3 +237,4 @@ Avropa Şurası və digər beynəlxalq təşkilatlar gənclər üçün bilik, t�
 
 </body>
 </html>
+
