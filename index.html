@@ -14,15 +14,15 @@ header img { width:100%; max-height:750px; object-fit:cover; border-radius:12px;
 .lang-switch button.active { background:#333; }
 .intro { text-align:center; padding:40px 20px; }
 .intro h2 { font-size:30px; margin-bottom:15px; }
-.intro p { max-width:800px; margin:0 auto 25px; line-height:1.6; }
+.intro p { max-width:800px; margin:0 auto 25px; line-height:1.6; white-space: pre-wrap; }
 .intro button { padding:12px 25px; border:2px solid #333; background:transparent; font-weight:bold; cursor:pointer; transition:0.3s; border-radius:6px; }
 .intro button:hover { background:#333; color:#fff; }
-.hidden-text { display:none; max-width:900px; margin:25px auto; text-align:left; line-height:1.6; background:#fafafa; padding:20px; border-radius:10px; }
+.hidden-text { display:none; max-width:900px; margin:25px auto; text-align:left; line-height:1.6; background:#fafafa; padding:20px; border-radius:10px; white-space: pre-wrap; }
 .hidden-text.show { display:block; }
 .blocks { background:#f4f4f4; padding:40px 20px; }
 .block { background:#fff; margin:20px auto; max-width:900px; padding:0 0 10px 0; border-radius:10px; box-shadow:0 2px 8px rgba(0,0,0,0.1); }
 .block-title { font-size:20px; font-weight:bold; cursor:pointer; padding:15px; background:#ff6600; color:#fff; border-radius:10px 10px 0 0; }
-.block-content { display:none; padding:18px; line-height:1.6; white-space:pre-line; }
+.block-content { display:none; padding:18px; line-height:1.6; white-space: pre-wrap; }
 .block-content.show { display:block; }
 footer { background:#333; color:#ccc; padding:30px 20px; text-align:center; margin-top:40px; }
 footer p { max-width:800px; margin:10px auto; line-height:1.5; }
@@ -80,8 +80,7 @@ titles:["პროექტის მოკლე აღწერა","ახა
 b1:`ბოლნისი პატარა, მაგრამ მრავალფეროვნებით მდიდარი. თუმცა ახალგაზრდებისთვის ცხოვრება აქ მარტივი არ არის. ბევრ მათგანს არ აქვთ შესაძლებლობა გადაწყვეტილების მიღების პროცესში ჩაერთონ, ზოგი ენობრივი ბარიერის და დისკრიმინაციის გამო აქტივობებში ვერ მონაწილეობს, ზოგისთვის კი უბრალოდ არ არსებობს ადგილი, სადაც ერთმანეთთან საუბარი და აზრების გაზიარებას შეძლებენ.
 ჩვენი პროექტი ”Youth Voices for Change” სწორედ ამის შეცვლის სურვილით შეიქმნა. გვსურდა კიდევ უფრო მეტი გაეგოთ ახალგაზრდებს მათი უფლებებისა და ადგილობრივი თვითმმართველობის შესახებ, ესწავლათ თუ როგორ მიიღონ მონაწილეობა გადაწყვეტილებების მიღებების პროცესში და როგორ გამოიყენონ თავიანთი უფლებები. რაც მთავარია მისცემოდათ შესაძლებლობა ცოდნის გააზიარებებისა თანატოლებისთვის, რათა კიდევ მეტი ახალგაზრდული ხმა ისმოდეს ძლიერად.
 ეს ყველაფერი იმისთვის, რომ ახალგაზრდები უფრო აქტიურად იყვნენ ჩართულნი საკუთარ ქალაქსა და სოფელში და თავიანთი იდეებითა და ენერგიით აქციონ იგი უკეთეს ადგილად ყველასთვის.`,
-b2:`ახალგაზრდული შესაძლებლობები საერთაშორისო ორგანიზაციებში
-თანამედროვე ეპოქაში ახალგაზრდები საზოგადოების პროგრესის, ინოვაციების და დემოკრატიული განვითარების მთავარი მამოძრავებელი ძალა არიან.
+b2:`თანამედროვე ეპოქაში ახალგაზრდები საზოგადოების პროგრესის, ინოვაციების და დემოკრატიული განვითარების მთავარი მამოძრავებელი ძალა არიან.
 საერთაშორისო ორგანიზაციები სულ უფრო მეტად ამჩნევენ მათ როლს და ქმნიან პლატფორმებს, სადაც ახალგაზრდებს შეუძლიათ საკუთარი აზრის დაფიქსირება, გამოცდილების გაზიარება და ახალი უნარების განვითარება.
 ამ პროცესში განსაკუთრებული ადგილი უკავია ევროსაბჭოს (Council of Europe) — ორგანიზაციას, რომელიც უკვე ათწლეულებია, მიზანმიმართულად მუშაობს ახალგაზრდული ჩართულობის, დემოკრატიისა და ადამიანის უფლებების დაცვის გაძლიერებაზე.
 
@@ -157,65 +156,4 @@ more:"Məqsədimiz gənclərə təhsil imkanları haqqında məlumat verməkdir.
 moreBtn:"Daha çox öyrən",
 titles:["Layihənin qısa təsviri","Beynəlxalq Təşkilatlarda Gənclərin İmkanları"],
 b1:`Bolnisi kiçik olsa da, çoxşaxəli və zəngindir. Lakin gənclər üçün burada həyat asan deyil. Onların bir çoxunun qərar qəbuletmə prosesinə qoşulmaq imkanı yoxdur, bəziləri dil baryeri və diskriminasiya səbəbindən fəaliyyətlərdə iştirak edə bilmir, bəziləri üçün isə sadəcə bir məkan yoxdur ki, orada bir-biri ilə danışıb fikirlərini bölüşsünlər.
-Bizim layihəmiz “Youth Voices for Change” məhz bunu dəyişmək məqsədilə yaradılıb. İstədik ki, gənclər öz hüquqları və yerli özünüidarəetmə haqqında daha çox bilsinlər, öyrənsinlər ki, qərar qəbuletmə prosesində necə iştirak etsinlər və öz hüquqlarından necə istifadə etsinlər. Ən əsası isə onlara biliklərini həmyaşıdları ilə bölüşmək imkanı verilsin ki, daha çox gəncin səsi güclü eşidilsin.
-Bütün bunlar isə ona görədir ki, gənclər öz şəhər və kəndlərində daha fəal iştirak etsinlər və öz ideya və enerjiləri ilə onları hamı üçün daha yaxşı bir məkana çevirsinlər.`,
-b2:`Beynəlxalq Təşkilatlarda Gənclərin İmkanları
-Müasir dövrdə gənclər cəmiyyətin tərəqqisinin, innovasiyaların və demokratik inkişafın əsas hərəkətverici qüvvəsidir. Beynəlxalq təşkilatlar getdikcə onların rolunu daha çox fərq edir və gənclərin öz fikirlərini bildirməsi, təcrübə mübadiləsi aparması və yeni bacarıqlar inkişaf etdirməsi üçün platformalar yaradır. Bu prosesdə xüsusi yer Avropa Şurasına (Council of Europe) məxsusdur – artıq onilliklərdir ki, təşkilat gənclərin iştirakını, demokratiyanı və insan hüquqlarının müdafiəsini gücləndirmək üçün məqsədyönlü iş aparır.
-
-Avropa Şurası – Avropa Dəyərlərini Gücləndirmək üçün Gənclər Platforması
-Avropa Şurasının gənclər siyasəti “Gənclər haqqında heç nə – Gənclərsiz” prinsipinə əsaslanır. Bu yanaşma gənclərin qərar qəbulu prosesində fəal iştirakını və demokratiyanın möhkəmləndirilməsindəki rolunu vurğulayır.
-• European Youth Foundation (EYF)
-Avropa Şurasının ən əhəmiyyətli alətlərindən biri Avropa miqyasında gənclər təşkilatlarını və layihələrini maliyyələşdirən European Youth Foundation-dur (Avropa Gənclər Fondu). EYF-in məqsədi gənclərin demokratik həyatda iştirakını, insan hüquqlarının müdafiəsini və sosial inklüzivliyin gücləndirilməsini təşviq etməkdir. İştirakçılara öz təşəbbüslərini təqdim etmək, maliyyə dəstəyi almaq və beynəlxalq təlimlərdə və forumlarda iştirak etmək imkanı verilir.
-• Avropa Gənclər Mərkəzləri – Strasburq və Budapeşt
-Strasburq və Budapeştdə yerləşən Avropa Şurasının Gənclər Mərkəzləri müxtəlif təhsil və təlim proqramlarına ev sahibliyi edir. Burada insan hüquqları, gənclərin liderliyi, demokratik iştirak və mədəni müxtəliflik kimi məsələlərdə seminarlar, konfranslar və tematik kurslar keçirilir.
-
-Avropa İttifaqının Gənclər Proqramları
-Avropa İttifaqı gənclər üçün qlobal səviyyədə tanınan və müxtəlif imkanlar təklif edir. Erasmus+ proqramı mədəniyyətlərarası əməkdaşlığın dərinləşməsinə və Avropa şüurunun formalaşmasına kömək edən tədris, könüllülük və mübadilə layihələrini birləşdirir. Həmçinin, European Solidarity Corps (Avropa Həmrəylik Korpusu) proqramı gənclərə (18–30 yaş) müxtəlif Avropa ölkələrində sosial, ekoloji və ya təhsil sahələrində işləmək şansı verir. Aİ institutlarında fəaliyyət göstərən təcrübə proqramları – məsələn, Avropa Komissiyası və Avropa Parlamentinin Blue Book Traineeship – gənclərə Avropa siyasəti və dövlət idarəçiliyi sahəsində biliklərini dərinləşdirməyə imkan yaradır.
-
-Birləşmiş Millətlər Təşkilatı (BMT)
-BMT gənclərə dayanıqlı inkişaf, təhsil, sülh və insan hüquqlarına aid qlobal təşəbbüslərdə iştirak etmək imkanı verir. UN Volunteers (UNV) proqramı gənclərə beynəlxalq layihələrdə həm yerində, həm də məsafədən işləməyə imkan verir. Həmçinin, UN Youth Delegate Programme gənclərə BMT-nin iclaslarında öz ölkələrini təmsil etmək şansı verir, UNDP, UNICEF və UNESCO isə mütəmadi olaraq təcrübə və gənclər müsabiqələri elan edir.
-
-Digər Beynəlxalq İmkanlar
-Avropa Şurası və Aİ-dən başqa, gənclər üçün bir çox başqa beynəlxalq təşkilatlarda da karyera və təhsil imkanları mövcuddur:
-• OSCE – Demokratiya, təhlükəsizlik və insan hüquqları sahələrində təcrübə proqramları;
-• OECD – İqtisadi və təhsil siyasəti üzrə tədqiqat təcrübələri;
-• World Bank Group – İnkişaf iqtisadiyyatı və innovasiyalarla maraqlanan gənc mütəxəssislər üçün “Young Professionals” proqramı.
-
-Nəticə
-Avropa Şurası və digər beynəlxalq təşkilatlar gənclər üçün bilik, təcrübə və sosial məsuliyyətin birləşdiyi bir məkan yaradır. Bu cür proqramlar vasitəsilə gənclər nəinki peşəkar şəkildə inkişaf edirlər, həm də qlobal cəmiyyətin inkişafına töhfə verməyə hazır olan fəal vətəndaşlara çevrilirlər.`
-};
-
-let currentLang = 'ka';
-function setLang(lang){
-currentLang = lang;
-document.getElementById('btn-ka').classList.remove('active');
-document.getElementById('btn-hy').classList.remove('active');
-document.getElementById('btn-az').classList.remove('active');
-document.getElementById('btn-'+lang).classList.add('active');
-document.getElementById('main-title').innerText = texts[lang].title;
-document.getElementById('main-text').innerText = texts[lang].main;
-document.getElementById('more-text').innerText = texts[lang].more;
-document.getElementById('more-btn').innerText = texts[lang].moreBtn;
-document.getElementById('title-b1').innerText = texts[lang].titles[0];
-document.getElementById('title-b2').innerText = texts[lang].titles[1];
-document.getElementById('b1').innerText = texts[lang].b1;
-document.getElementById('b2').innerText = texts[lang].b2;
-document.getElementById('b1').classList.remove('show');
-document.getElementById('b2').classList.remove('show');
-document.getElementById('title-b1').setAttribute('aria-expanded','false');
-document.getElementById('title-b2').setAttribute('aria-expanded','false');
-}
-function toggleMore(){
-document.getElementById('more-text').classList.toggle('show');
-}
-function toggleBlock(id){
-let content = document.getElementById(id);
-content.classList.toggle('show');
-let title = document.getElementById('title-'+id);
-title.setAttribute('aria-expanded', content.classList.contains('show') ? 'true':'false');
-}
-setLang(currentLang);
-</script>
-
-</body>
-</html>
+Bizim layihəmiz “Youth Voices for
