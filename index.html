@@ -51,23 +51,23 @@
 
 <section class="blocks">
   <div class="block">
-    <div class="block-title" onclick="toggleBlock('b1')" aria-expanded="false">ახალგაზრდული შესაძლებლობები საერთაშორისო ორგანიზაციებში</div>
+    <div class="block-title" id="title-b1" onclick="toggleBlock('b1')" aria-expanded="false"></div>
     <div class="block-content" id="b1"></div>
   </div>
   <div class="block">
-    <div class="block-title" onclick="toggleBlock('b2')" aria-expanded="false">ევროსაბჭო - ახალგაზრდების პლატფორმა ევროპული ღირებულებების გასაძლიერებლად</div>
+    <div class="block-title" id="title-b2" onclick="toggleBlock('b2')" aria-expanded="false"></div>
     <div class="block-content" id="b2"></div>
   </div>
   <div class="block">
-    <div class="block-title" onclick="toggleBlock('b3')" aria-expanded="false">ევროკავშირის ახალგაზრდული პროგრამები</div>
+    <div class="block-title" id="title-b3" onclick="toggleBlock('b3')" aria-expanded="false"></div>
     <div class="block-content" id="b3"></div>
   </div>
   <div class="block">
-    <div class="block-title" onclick="toggleBlock('b4')" aria-expanded="false">გაერო</div>
+    <div class="block-title" id="title-b4" onclick="toggleBlock('b4')" aria-expanded="false"></div>
     <div class="block-content" id="b4"></div>
   </div>
   <div class="block">
-    <div class="block-title" onclick="toggleBlock('b5')" aria-expanded="false">სხვა საერთაშორისო შესაძლებლობები</div>
+    <div class="block-title" id="title-b5" onclick="toggleBlock('b5')" aria-expanded="false"></div>
     <div class="block-content" id="b5"></div>
   </div>
 </section>
@@ -88,33 +88,99 @@ const texts = {
     main:"მოგესალმებით ჩვენს ახალ სამენოვან ონლაინ პლატფორმაზე!",
     more:"პლატფორმა მოგაწვდით სანდო ინფორმაციას და ახალგაზრდულ შესაძლებლობებს საერთაშორისო დონეზე.",
     moreBtn:"გაიგე მეტი",
-    b1:`თანამედროვე ეპოქაში ახალგაზრდები საზოგადოების პროგრესის, ინოვაციების და დემოკრატიული განვითარების მთავარი მამოძრავებელი ძალაა...`,
-    b2:`ევროსაბჭოს ახალგაზრდული პოლიტიკა დაფუძნებულია პრინციპზე...`,
-    b3:`ევროკავშირი ახალგაზრდებისთვის გლობალურად ცნობილ მრავალფეროვან შესაძლებლობებს სთავაზობს...`,
-    b4:`გაერო ახალგაზრდებს აძლევს შესაძლებლობას მონაწილეობა მიიღონ გლობალურ ინიციატივებში...`,
-    b5:`გარდა ევროკავშირისა და ევროსაბჭოს, კიდევ ბევრი მიმართულებაა...`
+    titles: [
+      "ახალგაზრდული შესაძლებლობები საერთაშორისო ორგანიზაციებში",
+      "ევროსაბჭო - ახალგაზრდების პლატფორმა ევროპული ღირებულებების გასაძლიერებლად",
+      "ევროკავშირის ახალგაზრდული პროგრამები",
+      "გაერო",
+      "სხვა საერთაშორისო შესაძლებლობები"
+    ],
+    b1:`თანამედროვე ეპოქაში ახალგაზრდები საზოგადოების პროგრესის, ინოვაციების და დემოკრატიული განვითარების მთავარი მამოძრავებელი ძალაა. 
+საერთაშორისო ორგანიზაციები სულ უფრო მეტად ამჩნევენ მათ როლს და ქმნიან პლატფორმებს, სადაც ახალგაზრდებს შეუძლიათ საკუთარი აზრის დაფიქსირება, გამოცდილების გაზიარება და ახალი უნარების განვითარება.
+ამ პროცესში განსაკუთრებული ადგილი უკავია ევროსაბჭოს (Council of Europe) — ორგანიზაციას, რომელიც უკვე ათწლეულებია, მიზანმიმართულად მუშაობს ახალგაზრდული ჩართულობის, დემოკრატიისა და ადამიანის უფლებების დაცვის გაძლიერებაზე.`,
+    b2:`ევროსაბჭოს ახალგაზრდული პოლიტიკა დაფუძნებულია პრინციპზე: „არაფერი ახალგაზრდების შესახებ — ახალგაზრდების გარეშე“.
+🔹 European Youth Foundation (EYF)
+ევროსაბჭოს ერთ-ერთი ყველაზე მნიშვნელოვანი ინსტრუმენტია EYF, რომელიც აფინანსებს ახალგაზრდულ ორგანიზაციებსა და პროექტებს ევროპის მასშტაბით.
+🔹 ევროპის ახალგაზრდული ცენტრები – სტრასბურგი და ბუდაპეშტი
+ამ ცენტრებში ტარდება სემინარები, ტრენინგები და სწავლების პროგრამები ახალგაზრდულ განვითარებაზე, დემოკრატიასა და კულტურულ მრავალფეროვნებაზე.`,
+    b3:`ევროკავშირი ახალგაზრდებისთვის გლობალურად ცნობილ მრავალფეროვან შესაძლებლობებს სთავაზობს.
+• Erasmus+ — სასწავლო, მოხალისეობრივი და გაცვლითი პროგრამები.
+• European Solidarity Corps — 18–30 წლის ახალგაზრდების მონაწილეობა სოციალურ, ეკოლოგიურ და საგანმანათლებლო პროექტებში.
+• Blue Book Traineeship — სტაჟირებები ევროკომისიასა და ევროპარლამენტში.`,
+    b4:`გაერო ახალგაზრდებს აძლევს შესაძლებლობას მონაწილეობა მიიღონ გლობალურ ინიციატივებში, რომლებიც ეხება განვითარებას, განათლებას, მშვიდობასა და უფლებებს.
+• UN Volunteers — მოხალისეობა მსოფლიოს სხვადასხვა ქვეყანაში.
+• UN Youth Delegate Programme — ახალგაზრდების მონაწილეობა გაეროს სესიებში.
+• UNDP, UNICEF, UNESCO — სტაჟირებები და კონკურსები ახალგაზრდებისთვის.`,
+    b5:`გარდა ევროკავშირისა და ევროსაბჭოს, კიდევ ბევრი მიმართულებაა:
+• OSCE – სტაჟირებები დემოკრატიისა და ადამიანის უფლებებში.
+• OECD – კვლევითი სტაჟირებები ეკონომიკასა და განათლებაში.
+• World Bank Group – „Young Professionals“ პროგრამა მომავალ ლიდერებისთვის.`
   },
   hy: {
     title:"Երիտասարդների ձայն փոփոխությունների համար",
     main:"Բարի գալուստ մեր նոր եռալեզու առցանց հարթակ!",
     more:"Հարթակը կտրամադրի վստահելի տեղեկատվություն և երիտասարդական հնարավորություններ միջազգային մակարդակով.",
     moreBtn:"Մեկնաբանել ավելին",
-    b1:`Ժամանակակից դարաշրջանում երիտասարդությունը հասարակության առաջընթացի, նորարարության և ժողովրդավարական զարգացման գլխավոր շարժիչ ուժն է...`,
-    b2:`Եվրոպայի Խորհուրդի երիտասարդական քաղաքականությունը հիմնված է «Երիտասարդների մասին ոչինչ՝ առանց երիտասարդների» սկզբունքի վրա...`,
-    b3:`Եվրոպական Միությունը երիտասարդներին առաջարկում է գլոբալ ճանաչում ունեցող բազմազան հնարավորություններ...`,
-    b4:`ՄԱԿ-ը երիտասարդներին հնարավորություն է տալիս մասնակցել գլոբալ նախաձեռնություններին...`,
-    b5:`Եվրոպայի Խորհուրդից և ԵՄ-ից բացի, կան այլ միջազգային հնարավորություններ...`
+    titles: [
+      "Երիտասարդական հնարավորություններ միջազգային կազմակերպություններում",
+      "Եվրոպայի Խորհուրդը - երիտասարդների հարթակ եվրոպական արժեքների ամրապնդման համար",
+      "Եվրոպական Միության երիտասարդական ծրագրեր",
+      "ՄԱԿ",
+      "Այլ միջազգային հնարավորություններ"
+    ],
+    b1:`Ժամանակակից դարաշրջանում երիտասարդությունը հասարակության առաջընթացի, նորարարության և ժողովրդավարական զարգացման գլխավոր շարժիչ ուժն է։ 
+Միջազգային կազմակերպությունները գնալով ավելի շատ են նկատում նրանց դերը և ստեղծում հարթակներ, որտեղ երիտասարդները կարող են արտահայտել իրենց կարծիքը, կիսվել փորձով և զարգացնել նոր հմտություններ։
+Այս գործընթացում առանձնահատուկ տեղ ունի Եվրոպայի Խորհուրդը (Council of Europe)՝ կազմակերպությունը, որն արդեն տասնամյակներ շարունակ նպատակաուղղված աշխատում է երիտասարդների ներգրավվածության, ժողովրդավարության և մարդու իրավունքների պաշտպանության ամրապնդման ուղղությամբ։`,
+    b2:`Եվրոպայի Խորհրդի երիտասարդական քաղաքականությունը հիմնված է «Երիտասարդների մասին ոչինչ՝ առանց երիտասարդների» սկզբունքի վրա:
+🔹 European Youth Foundation (EYF)
+Եվրոպայի Խորհրդի ամենակարևոր գործիքներից մեկը European Youth Foundation-ն է, որը ֆինանսավորում է երիտասարդական կազմակերպություններն ու ծրագրերը ողջ Եվրոպայում։
+🔹 Եվրոպայի երիտասարդական կենտրոններ – Ստրասբուրգ և Բուդապեշտ
+Եվրոպայի Խորհրդի երիտասարդական կենտրոնները անցկացնում են բազմազան կրթական և վերապատրաստման ծրագրեր երիտասարդների զարգացման, ժողովրդավարության և մշակութային բազմազանության ոլորտում։`,
+    b3:`Եվրոպական Միությունը երիտասարդներին առաջարկում է գլոբալ ճանաչում ունեցող բազմազան հնարավորություններ։
+• Erasmus+ — ուսումնական, կամավորական և փոխանակման ծրագրեր
+• European Solidarity Corps — 18–30 տարեկան երիտասարդների մասնակցություն սոցիալական, շրջակա միջավայրի և կրթական նախագծերում
+• Blue Book Traineeship — պրակտիկաներ Եվրոպական հանձնաժողովում և Եվրոպական խորհրդարանում`,
+    b4:`ՄԱԿ-ը երիտասարդներին հնարավորություն է տալիս մասնակցել գլոբալ նախաձեռնություններին, որոնք վերաբերում են զարգացմանը, կրթությանը, խաղաղությանը և իրավունքներին։
+• UN Volunteers — կամավորություն աշխարհի տարբեր երկրներում
+• UN Youth Delegate Programme — երիտասարդների մասնակցություն ՄԱԿ-ի նիստերում
+• UNDP, UNICEF, UNESCO — պրակտիկաներ և մրցույթներ երիտասարդների համար`,
+    b5:`Եվրոպայի Խորհուրդից և ԵՄ-ից բացի, կան այլ միջազգային հնարավորություններ։
+• OSCE — պրակտիկաներ ժողովրդավարության և մարդու իրավունքների ոլորտում
+• OECD — հետազոտական պրակտիկաներ տնտեսության և կրթության ոլորտում
+• World Bank Group — “Young Professionals” ծրագիր ապագա առաջնորդների համար`
   },
   az: {
     title:"Gənclərin Səsi Dəyişikliklər Üçün",
     main:"Yeni üçdilli onlayn platformamıza xoş gəlmisiniz!",
     more:"Platforma sizə etibarlı məlumat və beynəlxalq səviyyədə gənclər üçün imkanlar təqdim edəcək.",
     moreBtn:"Daha çox öyrən",
-    b1:`Müasir dövrdə gənclər cəmiyyətin tərəqqisinin, innovasiyaların və demokratik inkişafın əsas hərəkətverici qüvvəsidir...`,
-    b2:`Avropa Şurasının gənclər siyasəti “Gənclər haqqında heç nə – Gənclərsiz” prinsipinə əsaslanır...`,
-    b3:`Avropa İttifaqı gənclərə qlobal səviyyədə tanınan müxtəlif imkanlar təqdim edir...`,
-    b4:`BMT gənclərə dayanıqlı inkişaf, təhsil, sülh və insan hüquqları ilə bağlı qlobal təşəbbüslərdə iştirak etmək imkanı verir...`,
-    b5:`Avropa Şurası və Aİ-dən başqa, gənclər üçün digər beynəlxalq imkanlar da mövcuddur...`
+    titles: [
+      "Beynəlxalq Təşkilatlarda Gənclərin İmkanları",
+      "Avropa Şurası - Gənclər Platforması Avropa Dəyərlərinin Gücləndirilməsi üçün",
+      "Avropa İttifaqının Gənclər Proqramları",
+      "BMT",
+      "Digər Beynəlxalq İmkanlar"
+    ],
+    b1:`Müasir dövrdə gənclər cəmiyyətin tərəqqisinin, innovasiyaların və demokratik inkişafın əsas hərəkətverici qüvvəsidir. 
+Beynəlxalq təşkilatlar getdikcə onların rolunu daha çox fərq edir və gənclərin öz fikirlərini bildirməsi, təcrübə mübadiləsi aparması və yeni bacarıqlar inkişaf etdirməsi üçün platformalar yaradır. 
+Bu prosesdə xüsusi yer Avropa Şurasına (Council of Europe) məxsusdur — artıq onilliklərdir ki, təşkilat gənclərin iştirakını, demokratiyanı və insan hüquqlarının müdafiəsini gücləndirmək üçün məqsədyönlü iş aparır.`,
+    b2:`Avropa Şurasının gənclər siyasəti “Gənclər haqqında heç nə – Gənclərsiz” prinsipinə əsaslanır.
+🔹 European Youth Foundation (EYF)
+Avropa Şurasının ən əhəmiyyətli alətlərindən biri European Youth Foundation-dur, Avropa miqyasında gənclər təşkilatlarını və layihələrini maliyyələşdirir.
+🔹 Avropa Gənclər Mərkəzləri – Strasburq və Budapeşt
+Strasburq və Budapeştdə yerləşən Gənclər Mərkəzləri müxtəlif təhsil və təlim proqramlarına ev sahibliyi edir, gənclərin inkişafı, demokratiya və mədəni müxtəliflik sahəsində seminarlar və təlimlər təşkil edir.`,
+    b3:`Avropa İttifaqı gənclər üçün qlobal səviyyədə tanınan və müxtəlif imkanlar təqdim edir.
+• Erasmus+ — təhsil, könüllülük və mübadilə proqramları
+• European Solidarity Corps — 18–30 yaşlı gənclərin sosial, ekoloji və təhsil layihələrində iştirakı
+• Blue Book Traineeship — Avropa Komissiyası və Avropa Parlamentində təcrübələr`,
+    b4:`BMT gənclərə dayanıqlı inkişaf, təhsil, sülh və insan hüquqları ilə bağlı qlobal təşəbbüslərdə iştirak etmək imkanı verir.
+• UN Volunteers — müxtəlif ölkələrdə könüllülük
+• UN Youth Delegate Programme — gənclərin BMT iclaslarında iştirakı
+• UNDP, UNICEF, UNESCO — gənclər üçün təcrübə və müsabiqələr`,
+    b5:`Avropa Şurası və Aİ-dən başqa, gənclər üçün bir çox digər beynəlxalq təşkilatlarda karyera və təhsil imkanları mövcuddur.
+• OSCE — Demokratiya və insan hüquqları üzrə təcrübələr
+• OECD — İqtisadiyyat və təhsil üzrə tədqiqat təcrübələri
+• World Bank Group — “Young Professionals” proqramı gələcək liderlər üçün`
   }
 };
 
@@ -126,6 +192,11 @@ function setLang(lang) {
   document.getElementById("main-text").innerText = texts[lang].main;
   document.getElementById("more-text").innerText = texts[lang].more;
   document.getElementById("more-btn").innerText = texts[lang].moreBtn;
+  document.getElementById("title-b1").innerText = texts[lang].titles[0];
+  document.getElementById("title-b2").innerText = texts[lang].titles[1];
+  document.getElementById("title-b3").innerText = texts[lang].titles[2];
+  document.getElementById("title-b4").innerText = texts[lang].titles[3];
+  document.getElementById("title-b5").innerText = texts[lang].titles[4];
   document.getElementById("b1").innerText = texts[lang].b1;
   document.getElementById("b2").innerText = texts[lang].b2;
   document.getElementById("b3").innerText = texts[lang].b3;
