@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chronos Antiquities - ანტიკვარული ნივთების მაღაზია</title>
+    <style>
+        :root {
+            --primary-color: #1a2e26; /* მუქი ვინტაჟური მწვანე */
+            --accent-color: #c5a059;  /* ანტიკვარული ოქროსფერი */
+            --bg-color: #f9f6f0;      /* კრემისფერი ფონი */
+            --card-bg: #ffffff;
+            --text-color: #333333;
+            --border-color: #e2d9cd;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Georgia', serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--primary-color);
+            color: var(--accent-color);
+            padding: 2rem 1rem;
+            text-align: center;
+            border-bottom: 3px solid var(--accent-color);
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            letter-spacing: 2px;
+        }
+
+        header p {
+            color: #d1c7bd;
+            font-size: 1.1rem;
+            font-style: italic;
+        }
+
+        /* Navigation / Categories */
+        .categories-nav {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            padding: 1.5rem;
+            background-color: #243d33;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .cat-btn {
+            background-color: transparent;
+            border: 1px solid var(--accent-color);
+            color: #f9f6f0;
+            padding: 8.px 20px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            border-radius: 4px;
+        }
+
+        .cat-btn:hover, .cat-btn.active {
+            background-color: var(--accent-color);
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 2rem;
+            color: var(--primary-color);
+            font-size: 2rem;
+            border-bottom: 2px solid var(--accent-color);
+            display: inline-block;
+            padding-bottom: 5px;
+        }
+
+        .title-wrapper {
+            text-align: center;
+        }
+
+        /* Gallery Grid */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .item-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .item-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+        }
+
+        .item-img-container {
+            height: 250px;
+            overflow: hidden;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .item-img-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .item-img-container:hover img {
+            transform: scale(1.05);
+        }
+
+        .item-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: var(--accent-color);
+            color: var(--primary-color);
+            padding: 4px 10px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            border-radius: 3px;
+        }
+
+        .item-content {
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .item-title {
+            font-size: 1.25rem;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .item-desc {
+            font-size: 0.95rem;
+            color: #666;
+            margin-bottom: 1rem;
+            flex-grow: 1;
+        }
+
+        .item-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid var(--border-color);
+            padding-top: 1rem;
+        }
+
+        .item-price {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+
+        .buy-btn {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .buy-btn:hover {
+            background-color: #243d33;
+        }
+
+        /* Lightbox Modal for Large Photos */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .modal-content {
+            background: white;
+            padding: 20px;
+            max-width: 700px;
+            width: 100%;
+            border-radius: 8px;
+            text-align: center;
+            position: relative;
+        }
+
+        .modal-content img {
+            width: 100%;
+            max-height: 400px;
+            object-fit: contain;
+            margin-bottom: 1rem;
+            border-radius: 4px;
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            font-size: 1.8rem;
+            cursor: pointer;
+            color: #333;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary-color);
+            color: #d1c7bd;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 3rem;
+            border-top: 3px solid var(--accent-color);
+        }
+
+        @media (max-width: 768px) {
+            header h1 { font-size: 2rem; }
+            .categories-nav { padding: 1rem; }
+            .cat-btn { font-size: 0.9rem; padding: 6px 12px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Chronos Antiquities</h1>
+        <p>აღმოაჩინეთ წარსულის ისტორია — უნიკალური ანტიკვარული ნივთები</p>
+    </header>
+
+    <!-- კატეგორიების ნავიგაცია -->
+    <nav class="categories-nav">
+        <button class="cat-btn active" onclick="filterCategory('all')">ყველა ნივთი</button>
+        <button class="cat-btn" onclick="filterCategory('watches')">საათები</button>
+        <button class="cat-btn" onclick="filterCategory('porcelain')">ფარფური და ჭურჭელი</button>
+        <button class="cat-btn" onclick="filterCategory('paintings')">ფერწერა და ხელოვნება</button>
+        <button class="cat-btn" onclick="filterCategory('decor')">ინტერიერის დეკორი</button>
+    </nav>
+
+    <div class="container">
+        <div class="title-wrapper">
+            <h2 class="section-title" id="category-heading">ყველა ნივთი</h2>
+        </div>
+
+        <!-- პროდუქტების ბადე (გალერეა) -->
+        <div class="gallery-grid" id="gallery-container">
+            <!-- ნივთები იტვირთება სკრიპტით -->
+        </div>
+    </div>
+
+    <!-- სურათის სრული ზომით ნახვის ფანჯარა (Modal) -->
+    <div class="modal" id="imageModal" onclick="closeModal()">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <span class="close-modal" onclick="closeModal()">&times;</span>
+            <img id="modalImg" src="" alt="დეტალური ფოტო">
+            <h3 id="modalTitle"></h3>
+            <p id="modalDesc" style="color: #666; margin: 10px 0;"></p>
+            <p id="modalPrice" style="font-size: 1.3rem; font-weight: bold; color: var(--primary-color);"></p>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Chronos Antiquities. ყველა უფლება დაცულია.</p>
+        <p style="font-size: 0.9rem; margin-top: 5px;">კონტაქტი: info@chronos-antiques.ge | ტელ: +995 555 00 00 00</p>
+    </footer>
+
+    <script>
+        // ნივთების მონაცემთა ბაზა
+        const items = [
+            {
+                id: 1,
+                category: 'watches',
+                title: 'ჯიბის ანტიკვარული საათი "Omega"',
+                description: 'XIX საუკუნის ბოლოს გამოშვებული ოქროსწყლიანი მექანიკური ჯიბის საათი, მუშა მდგომარეობაში.',
+                price: '1,200 ლარი',
+                image: 'https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=600&q=80',
+                badge: 'საათები'
+            },
+            {
+                id: 2,
+                category: 'porcelain',
+                title: 'ფაიფურის ჩაის სერვიზი "KPM"',
+                description: 'გერმანული ანტიკვარული ფაიფურის სერვიზი ხელნაკეთი მხატვრობით, 1920-იანი წლები.',
+                price: '850 ლარი',
+                image: 'https://images.unsplash.com/photo-1578749556568-bc2c40e68b61?auto=format&fit=crop&w=600&q=80',
+                badge: 'ჭურჭელი'
+            },
+            {
+                id: 3,
+                category: 'paintings',
+                title: 'ზეთის ტილო "ძველი თბილისი"',
+                description: 'მე-20 საუკუნის დასაწყისის უცნობი მხატვრის ნამუშევარი, ორიგინალური ხის ჩარჩოთი.',
+                price: '2,400 ლარი',
+                image: 'https://images.unsplash.com/photo-1579783902614-a3fb3927b675?auto=format&fit=crop&w=600&q=80',
+                badge: 'ხელოვნება'
+            },
+            {
+                id: 4,
+                category: 'decor',
+                title: 'ბრინჯაოს ანტიკვარული შანდალი',
+                description: 'მძიმე ბრინჯაოსგან დამზადებული 3 სანთლიანი ვინტაჟური შანდალი, ფრანგული წარმოების.',
+                price: '450 ლარი',
+                image: 'https://images.unsplash.com/photo-1513519245088-0e12902e5a38?auto=format&fit=crop&w=600&q=80',
+                badge: 'დეკორი'
+            },
+            {
+                id: 5,
+                category: 'watches',
+                title: 'მექანიკური მაგიდის საათი "Majestic"',
+                description: 'וינטაჟური ბრინჯაოს მაგიდის საათი მექანიკური ზარის რეკვის ფუნქციით.',
+                price: '680 ლარი',
+                image: 'https://images.unsplash.com/photo-1563861826100-9cb868fdbe1c?auto=format&fit=crop&w=600&q=80',
+                badge: 'საათები'
+            },
+            {
+                id: 6,
+                category: 'porcelain',
+                title: 'ანტიკვარული ფაიფურის ლარნაკი',
+                description: 'აღმოსავლური მოტივებით გაფორმებული კოლექციური ლარნაკი ოქროს დეტალებით.',
+                price: '920 ლარი',
+                image: 'https://images.unsplash.com/photo-1612196808214-b8e1d6145a5c?auto=format&fit=crop&w=600&q=80',
+                badge: 'ჭურჭელი'
+            }
+        ];
+
+        // საიტის რენდერის ფუნქცია
+        function displayItems(category) {
+            const container = document.getElementById('gallery-container');
+            container.innerHTML = '';
+
+            const filteredItems = category === 'all' 
+                ? items 
+                : items.filter(item => item.category === category);
+
+            filteredItems.forEach(item => {
+                const card = document.createElement('div');
+                card.className = 'item-card';
+                card.innerHTML = `
+                    <div class="item-img-container" onclick="openModal(${item.id})">
+                        <img src="${item.image}" alt="${item.title}">
+                        <span class="item-badge">${item.badge}</span>
+                    </div>
+                    <div class="item-content">
+                        <h3 class="item-title">${item.title}</h3>
+                        <p class="item-desc">${item.description}</p>
+                        <div class="item-footer">
+                            <span class="item-price">${item.price}</span>
+                            <button class="buy-btn" onclick="openModal(${item.id})">დეტალები</button>
+                        </div>
+                    </div>
+                `;
+                container.appendChild(card);
+            });
+        }
+
+        // კატეგორიების გაფილტრვა ღილაკებზე დაწკაპუნებით
+        function filterCategory(category) {
+            // აქტიური ღილაკის სტილის მართვა
+            document.querySelectorAll('.cat-btn').forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+
+            // სათაურის შეცვლა
+            const titles = {
+                'all': 'ყველა ნივთი',
+                'watches': 'საათების კოლექცია',
+                'porcelain': 'ფარფური და ჭურჭელი',
+                'paintings': 'ფერწერა და ხელოვნება',
+                'decor': 'ინტერიერის დეკორი'
+            };
+            document.getElementById('category-heading').innerText = titles[category];
+
+            displayItems(category);
+        }
+
+        // ფოტოს დიდეკრანიანი გახსნა (Lightbox Modal)
+        function openModal(id) {
+            const item = items.find(i => i.id === id);
+            if (!item) return;
+
+            document.getElementById('modalImg').src = item.image;
+            document.getElementById('modalTitle').innerText = item.title;
+            document.getElementById('modalDesc').innerText = item.description;
+            document.getElementById('modalPrice').innerText = 'ფასი: ' + item.price;
+            
+            document.getElementById('imageModal').style.display = 'flex';
+        }
+
+        function closeModal() {
+            document.getElementById('imageModal').style.display = 'none';
+        }
+
+        // საიტის ჩატვირთვისას გამოჩნდეს ყველა ნივთი
+        window.onload = () => {
+            displayItems('all');
+        };
+    </script>
+</body>
+</html>
